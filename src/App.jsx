@@ -1,27 +1,15 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 
 import { useState } from 'react';
-import { Menu, MenuItem } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material/';
+import { AppBar, Toolbar, Typography, CssBaseline, useScrollTrigger, Container, Stack, Button } from '@mui/material';
 
-import SwitchAppBar from './router/Switch';
-import './css/app.css'
+import PageConteiner from './pageContainer';
+import './App.css'
 
 const ElevateAppBar = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
-
-
 
     function ElevationScroll(props) {
         const { children, window } = props;
@@ -58,13 +46,13 @@ const ElevateAppBar = (props) => {
             <ElevationScroll {...props}>
                 <AppBar className='appBar'>
                     <Toolbar className='Toolbar'>
-                        <div style={{ display: "flex", paddingLeft: "2rem" }}>
+                        <div style={{ display: "flex", paddingLeft: "1rem" }}>
                             <img style={{ minWidth: '50px', maxWidth: '50px', paddingRight: "5px" }} src={'image/Proxima_Logo.png'} />
                             <Typography color='primary' variant="h4" style={{ fontWeight: 500, fontFamily: "system-ui" }}>
                                 PROXIMA
                             </Typography>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "flex-end", paddingRight:"25px" }}>
+                        <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: "25px" }}>
                             <Stack spacing={2} direction="row">
                                 <Button variant="text">
                                     <Typography color='primary' style={{ fontWeight: 700, fontFamily: "system-ui", fontSize: "0.875rem" }}>
@@ -98,7 +86,7 @@ const ElevateAppBar = (props) => {
                                         Careers
                                     </Typography>
                                 </Button>
-                                <Button variant="contained" color='buttonColor' style={{padding: "9px 15px"}}>
+                                <Button variant="contained" color='buttonColor' style={{ padding: "7px 15px" }} href='#contact_us'>
                                     Contact Us
                                 </Button>
                             </Stack>
@@ -108,9 +96,7 @@ const ElevateAppBar = (props) => {
             </ElevationScroll>
             <Toolbar />
             <Container>
-                <Box sx={{ my: 2, width: 1 }}>
-                    <SwitchAppBar />
-                </Box>
+                <PageConteiner />
             </Container>
         </React.Fragment>
     );

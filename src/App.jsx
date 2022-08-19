@@ -137,9 +137,9 @@ const ElevateAppBar = (props) => {
                 </AppBar>
             </ElevationScroll>
             <Toolbar />
-            <Box>
+            <Container>
                 <PageConteiner />
-            </Box>
+            </Container>
         </React.Fragment>
     );
 }

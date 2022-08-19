@@ -3,7 +3,7 @@
 // Función encargada de retornar un objeto el cual almacena las variables URL y HEADERS para el proceso de consumo de la API.
 const API = () => {
     let api = {
-        url: "https://webhook.site/d961b103-ff78-4eb2-b1ad-526801179f99",
+        url: "https://webhook.site/04b12921-3072-4fe9-8d60-9f4394e109d9",
         headers: {
             'Accept-Version': 1,
             'Accept': 'application/json',

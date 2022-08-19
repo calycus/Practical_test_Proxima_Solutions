@@ -8,13 +8,17 @@ import './contactUS.css'
 
 let textCard = [
     "Eos aspernatur rem",
-    "Volup amet voluptas",
-    "Alias possimus",
     "Facilis neque ipsa",
+    "Volup amet voluptas",
     "Rerum omnis sint",
+    "Alias possimus",
     "Repellendus mollita",
 ]
 
+
+
+/////////
+//Función encargada de cambiar los estilos dependiendo de la cantidad de cards que se quira generar
 const setCssPorfile = (data, index) => {
     const style = document.documentElement.style
     {
@@ -39,7 +43,7 @@ const ContactUS = () => {
                         return (
                             <Card
                                 key={index}
-                                sx={{ minWidth: 275, minHeight: 65}}
+                                sx={{ minWidth: 275, minHeight: 65 }}
                                 style={{
                                     display: 'flex',
                                     minWidth: "260px",

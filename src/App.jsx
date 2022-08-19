@@ -2,17 +2,35 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
 
-import { useState } from 'react';
 import { KeyboardArrowDown } from '@mui/icons-material/';
 import { AppBar, Toolbar, Typography, useScrollTrigger, Container, Stack, Button } from '@mui/material';
 
 import PageConteiner from './pageContainer';
 import './App.css'
 import API from './API/apiRES';
+import { Box } from '@mui/system';
 
 const ElevateAppBar = (props) => {
     /////////
-    //Función encargada de mantener el App Bar de forma sticky-header 
+    //Función encargada de mantener el App Bar de forma sticky-header y cambiar los estilos del mismo
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("appBar").style.height = "4rem";
+            document.getElementById("Toolbar").style.padding = "0rem 1rem 0rem 1rem";
+            document.getElementById("titleHome").style.fontSize = "1.9rem";
+            document.getElementById("imageLogo").style.minWidth = "45px";
+            document.getElementById("imageLogo").style.maxWidth = "45px";
+        } else {
+            document.getElementById("appBar").style.height = "5rem";
+            document.getElementById("Toolbar").style.padding = ".5rem 1rem .5rem 1rem";
+            document.getElementById("titleHome").style.fontSize = "2.125rem";
+            document.getElementById("imageLogo").style.minWidth = "50px";
+            document.getElementById("imageLogo").style.maxWidth = "50px";
+        }
+    }
+
     function ElevationScroll(props) {
         const { children, window } = props;
 
@@ -40,34 +58,33 @@ const ElevateAppBar = (props) => {
         let name = "Jhon David Macias Saldarreaga"
         let api = API()
         setTimeout(() => {
-            try {
-                axios({
-                    method: 'POST',
-                    url: api.url,
-                    headers: api.headers,
-                    responseType: 'json',
-                    data: {
-                        name: name,
-                        local_time: time,
-                        ip_address: ip_address.ip
-                    }
-                })
+            axios({
+                method: 'POST',
+                url: api.url,
+                headers: api.headers,
+                responseType: 'json',
+                data: {
+                    name: name,
+                    local_time: time,
+                    ip_address: ip_address.ip
+                }
+            })
+                .catch(err => {
+                    alert(err.message + ": CORS Headers Disable" )
+                });
 
-                console.log("post echo");
-            } catch (error) {
-                console.log(error)
-            }
+
         }, 1000);
     }
 
     return (
         <React.Fragment>
             <ElevationScroll {...props}>
-                <AppBar className='appBar'>
-                    <Toolbar className='Toolbar'>
+                <AppBar className='appBar' id='appBar'>
+                    <Toolbar className='Toolbar' id='Toolbar'>
                         <div style={{ display: "flex", paddingLeft: "1rem" }}>
-                            <img style={{ minWidth: '50px', maxWidth: '50px', paddingRight: "5px" }} src={'image/Proxima_Logo.png'} />
-                            <Typography color='primary' variant="h4" style={{ fontWeight: 600, fontFamily: "system-ui" }}>
+                            <img id="imageLogo" style={{ minWidth: '50px', maxWidth: '50px', paddingRight: "5px" }} src={'image/Proxima_Logo.png'} />
+                            <Typography id='titleHome' color='primary' variant="h4" style={{ fontWeight: 600, fontFamily: "system-ui", alignSelf: "center" }}>
                                 PROXIMA
                             </Typography>
                         </div>
@@ -120,9 +137,9 @@ const ElevateAppBar = (props) => {
                 </AppBar>
             </ElevationScroll>
             <Toolbar />
-            <Container>
+            <Box>
                 <PageConteiner />
-            </Container>
+            </Box>
         </React.Fragment>
     );
 }

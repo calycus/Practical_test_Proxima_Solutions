@@ -18,7 +18,7 @@ const PageConteiner = () => {
                 <ContactUS />
                 <ScrollToTop
                     smooth
-                    style={{ backgroundColor: theme.palette.buttonColor.main, right: "0px", bottom: "10px" }}
+                    style={{ backgroundColor: theme.palette.buttonColor.main, right: "5px", bottom: "10px" }}
                     component={
                         <ArrowUpwardIcon
                             fontSize="small"

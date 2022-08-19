@@ -15,6 +15,15 @@ let textCard = [
     "Repellendus mollita",
 ]
 
+const setCssPorfile = (data, index) => {
+    const style = document.documentElement.style
+    {
+        (data % 2 > 0 && index == data - 1)
+            ? style.setProperty('--gridColumn', 'span 2')
+            : style.setProperty('--gridColumn', 'span 1')
+    }
+}
+
 const ContactUS = () => {
     const theme = useTheme()
 
@@ -25,70 +34,32 @@ const ContactUS = () => {
                     <img style={{ paddingRight: "5px", minWidth: '35rem', maxWidth: '35rem' }} src={'/image/image_low.png'} />
                 </div>
                 <div className="divCardContainer">
-                    <div className="divCard">
-                        <Card sx={{ minWidth: 275, minHeight: 65 }} >
-                            <CardContent style={{ display: 'flex' }}>
-                                <Card style={{ display: "flex", padding: "2px 4px", backgroundColor: "#eff3fc" }}>
-                                    <Check style={{ fontSize: "1rem", alignSelf: "center" }} />
-                                </Card>
-                                <div style={{ color: theme.palette.primary.main }} className="divCardText">
-                                    Eos aspernatur rem
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card sx={{ minWidth: 275 }}>
-                            <CardContent style={{ display: 'flex' }}>
-                                <Card style={{ display: "flex", padding: "2px 4px", backgroundColor: "#eff3fc" }}>
-                                    <Check style={{ fontSize: "1rem", alignSelf: "center" }} />
-                                </Card>
-                                <div style={{ color: theme.palette.primary.main }} className="divCardText">
-                                    Volup amet voluptas
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card sx={{ minWidth: 275 }}>
-                            <CardContent style={{ display: 'flex' }}>
-                                <Card style={{ display: "flex", padding: "2px 4px", backgroundColor: "#eff3fc" }}>
-                                    <Check style={{ fontSize: "1rem", alignSelf: "center" }} />
-                                </Card>
-                                <div style={{ color: theme.palette.primary.main }} className="divCardText">
-                                    Alias possimus
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <div className="divCard">
-                        <Card sx={{ minWidth: 275 }}>
-                            <CardContent style={{ display: 'flex' }}>
-                                <Card style={{ display: "flex", padding: "2px 4px", backgroundColor: "#eff3fc" }}>
-                                    <Check style={{ fontSize: "1rem", alignSelf: "center" }} />
-                                </Card>
-                                <div style={{ color: theme.palette.primary.main }} className="divCardText">
-                                    Facilis neque ipsa
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card sx={{ minWidth: 275 }}>
-                            <CardContent style={{ display: 'flex' }}>
-                                <Card style={{ display: "flex", padding: "2px 4px", backgroundColor: "#eff3fc" }}>
-                                    <Check style={{ fontSize: "1rem", alignSelf: "center" }} />
-                                </Card>
-                                <div style={{ color: theme.palette.primary.main }} className="divCardText">
-                                    Rerum omnis sint
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card sx={{ minWidth: 275 }}>
-                            <CardContent style={{ display: 'flex' }}>
-                                <Card style={{ display: "flex", padding: "2px 4px", backgroundColor: "#eff3fc" }}>
-                                    <Check style={{ fontSize: "1rem", alignSelf: "center" }} />
-                                </Card>
-                                <div style={{ color: theme.palette.primary.main }} className="divCardText">
-                                    Repellendus mollita
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
+                    {textCard.map((text, index) => {
+                        setCssPorfile(textCard.length, index);
+                        return (
+                            <Card
+                                key={index}
+                                sx={{ minWidth: 275, minHeight: 65}}
+                                style={{
+                                    display: 'flex',
+                                    minWidth: "260px",
+                                    'gridColumn':
+                                        textCard.length % 2 > 0 &&
+                                            index == textCard.length - 1
+                                            ? 'span 2'
+                                            : 'span 1',
+                                }}>
+                                <CardContent style={{ display: 'flex', padding: "20px" }}>
+                                    <Card style={{ display: "flex", padding: "2px 4px", backgroundColor: "#eff3fc" }}>
+                                        <Check style={{ fontSize: "1rem", alignSelf: "center" }} />
+                                    </Card>
+                                    <div style={{ color: theme.palette.primary.main }} className="divCardText">
+                                        {text}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )
+                    })}
                 </div>
             </div>
         </Box>

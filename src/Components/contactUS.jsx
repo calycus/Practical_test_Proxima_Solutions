@@ -5,8 +5,19 @@ import { Box } from "@mui/system";
 import { Check } from '@mui/icons-material';
 
 import './contactUS.css'
+
+let textCard = [
+    "Eos aspernatur rem",
+    "Volup amet voluptas",
+    "Alias possimus",
+    "Facilis neque ipsa",
+    "Rerum omnis sint",
+    "Repellendus mollita",
+]
+
 const ContactUS = () => {
     const theme = useTheme()
+
     return (
         <Box sx={{ width: 1, height: 1 }}>
             <div className="boxContainerContactUS" id="contact_us">

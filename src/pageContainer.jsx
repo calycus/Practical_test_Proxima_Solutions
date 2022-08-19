@@ -6,6 +6,9 @@ import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
+/////////
+// ScrollToTop es un componente perteneciente a la librería react-scroll-to-top, el cual proporciona un componente base y altamente customizable.
+
 const PageConteiner = () => {
     const theme = useTheme()
     return (
@@ -15,7 +18,7 @@ const PageConteiner = () => {
                 <ContactUS />
                 <ScrollToTop
                     smooth
-                    style={{ backgroundColor: theme.palette.buttonColor.main }}
+                    style={{ backgroundColor: theme.palette.buttonColor.main, right: "0px", bottom: "10px" }}
                     component={
                         <ArrowUpwardIcon
                             fontSize="small"

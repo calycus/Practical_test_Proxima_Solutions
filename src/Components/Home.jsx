@@ -19,7 +19,7 @@ const Home = () => {
                     </Typography>
 
                     <div style={{ paddingTop: "2rem" }}>
-                        <Button variant="contained" color='buttonSecontaryColor' style={{ padding: "8px 25px" }}>
+                        <Button variant="contained" color='buttonSecontaryColor' className='textButon' style={{ padding: "8px 25px" }}>
                             <div style={{ color: theme.palette.textButton.main }}>Discover How</div>
                             <East sx={{ paddingLeft: "10px", fontSize: "25px !important", color: theme.palette.textButton.main }} />
                         </Button>

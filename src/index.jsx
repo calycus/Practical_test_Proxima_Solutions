@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import App from './App';
 
-
+/////////
+//Constante encargada de guardar una nueva paleta de colores para ser utilizada dentro del proyecto.
 const theme = createTheme({
   palette: {
     primary: {
@@ -18,7 +18,7 @@ const theme = createTheme({
       main: '#4161de'
     },
     buttonSecontaryColor: {
-      main: '#748ce4'
+      main: '#4060e1'
     }
   },
 });
@@ -26,9 +26,7 @@ const theme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </ThemeProvider>
 );
 
